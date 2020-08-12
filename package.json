@@ -1,0 +1,13 @@
+{
+  "name": "animbot-docker-license-server",
+  "version": "1.0.0",
+  "description": "AnimBot License Server - Docker Edition",
+  "main": "",
+  "author": "Daniel Hagen <dhagen@aspyr.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "docker build -t animbot-docker-license-server:latest .",
+    "dev": "docker run --rm -it --name animbot-dev animbot-docker-license-server:latest",
+    "dev:build": "yarn build && docker run --rm -it --name animbot-dev animbot-docker-license-server:latest"
+  }
+}
