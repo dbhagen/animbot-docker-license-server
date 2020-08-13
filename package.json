@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "build": "docker build -t animbot-docker-license-server:latest .",
-    "dev": "docker run --rm -it --name animbot-dev animbot-docker-license-server:latest",
-    "dev:build": "yarn build && docker run --rm -it --name animbot-dev animbot-docker-license-server:latest"
+    "build:dev": "yarn build && yarn dev",
+    "build:start": "yarn build && yarn start",
+    "dev": "docker run --rm -it -h animbot-licensing -v $(pwd)/test-lic-volume:/opt/rlm/licenses -v $(pwd)/test-log-volume:/opt/rlm/logs --name animbot-dev animbot-docker-license-server:latest /bin/bash",
+    "start": "docker run --rm -it -h animbot-licensing -v $(pwd)/test-lic-volume:/opt/rlm/licenses -v $(pwd)/test-log-volume:/opt/rlm/logs --name animbot-dev animbot-docker-license-server:latest"
   }
 }
